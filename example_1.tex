@@ -90,39 +90,6 @@
 % Set default figure placement to htbp
 \def\fps@figure{htbp}
 \makeatother
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
-  \fi
-  % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -410,311 +377,142 @@ Tools for Open Science\\
 \listoftables
 
 \mainmatter
-\section{YAML additions for themes}\label{yaml-additions-for-themes}
+\chapter{1 The Assignment}\label{the-assignment}
 
-Some themes need some additional YAML information to work.
+\section{1.1 Company Profile}\label{company-profile}
 
-\subsection{\texorpdfstring{\texttt{bg-image}}{bg-image}}\label{bg-image}
+Describe the commissioning organization (Value Chain Hackers Lab within
+Windesheim). Include mission, role, and relevant context.
 
-Needs info on the title page geometry so the title doesn't overlap the
-background image. Also you need to supply the background image and where
-to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR,
-bottomright). Note, there are placeholders in the extension, but when
-you put your own image in, you'll need to add the YAML information.
+\section{1.2 Problem Statement}\label{problem-statement}
 
-\begin{verbatim}
-format: 
-  titlepage-pdf:
-    titlepage: bg-image
-    titlepage-geometry: 
-     - top=3in
-     - bottom=1in
-     - right=1in
-     - left=1in
-    titlepage-bg-image: "img/corner-bg.png"
-    titlepage-theme:
-      bg-image-location: "UL"
-      bg-image-size: 0.5
-\end{verbatim}
+Explain the specific operational or innovation problem. Show why it
+matters at micro, meso, and macro level. Support with evidence.
 
-\section{Document classes}\label{document-classes}
+\section{1.3 The Goal and Objective}\label{the-goal-and-objective}
 
-The document class changes the look of your document. For the book
-document classes, you will need to pass in
+State the overarching goal and concrete objectives. Explain what the
+project should achieve and how success can be measured.
 
-\begin{verbatim}
-number-sections: true
-\end{verbatim}
+\section{1.4 Match to the Micro Innovation Track and Personal
+Fit}\label{match-to-the-micro-innovation-track-and-personal-fit}
 
-in your YAML because Quarto sets \texttt{number-sections:\ false} by
-default and that will mess up all your equation, figure and table
-numbers. It simple will not number them correctly at all.
+Explain why this is a proper Micro Innovation assignment. Show how it
+connects to your interests, strengths, and future ambitions.
 
-For book document classes (like \texttt{scrbook}), if you want chapters
-to be allowed to start on even or odd pages and the left and right
-margins on even and odd pages to be the same, use
+\section{1.5 Confirmed Client
+Requirements}\label{confirmed-client-requirements}
 
-\begin{verbatim}
-classoption: ["oneside", "open=any"]
-\end{verbatim}
+Summarize the requirements agreed with the client. Mention scope,
+expectations, deliverables, and validation needs.
 
-\chapter{Introduction}\label{introduction}
+\section{1.6 Ambition Statement}\label{ambition-statement}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor
-velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris
-non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit
-magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales
-eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc
-pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et
-suscipit enim.
+Clarify the ambition of the project in professional terms. Show the
+added value for client and your own growth.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
-ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
-quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
-bibendum placerat tellus, ac finibus lectus euismod eget.
+\section{1.7 BI Meta-skills Mapping}\label{bi-meta-skills-mapping}
 
-Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique,
-porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et
-dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod,
-hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras
-fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel
-egestas nisi. Curabitur vitae imperdiet justo.
+Explain how you will apply and demonstrate Define, Design, Execute,
+Learn, Lead. Use examples from the assignment.
 
-\begin{quote}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat.\\
-\end{quote}
+\section{1.8 Trends and Developments}\label{trends-and-developments}
 
-\section{Supporting theory}\label{supporting-theory}
+Summarize relevant external trends, developments, and scenarios (past,
+present, near future) that justify the project.
 
-Let \(X_1, X_2, \ldots, X_n\) be a sequence of independent and
-identically distributed random variables with \(\text{E}[X_i] = \mu\)
-and \(\text{Var}[X_i] = \sigma^2 < \infty\), and let
+\section{1.9 Why This Assignment Is
+Important}\label{why-this-assignment-is-important}
 
-\begin{equation}\phantomsection\label{eq-clt}{
-S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i
-}\end{equation}
+Conclude why this project matters --- to the lab, partners, and your own
+development.
 
-denote their mean. Then as \(n\) approaches infinity, the random
-variables \(\sqrt{n}(S_n - \mu)\) converge in distribution to a normal
-\(\mathcal{N}(0, \sigma^2)\). Thus concludes the explanation about
-Equation~\ref{eq-clt}.
+\chapter{2 Research Design}\label{research-design}
 
-You can also use the LaTeX equation environment (equation, align,
-gather, etc) syntax, such as:
+\section{2.1 Main Research Question}\label{main-research-question}
 
-\begin{verbatim}
-\begin{equation} \label{eq-eq2}
-\int_{A_i}{\lambda (\mathbf{x})}
-\end{equation} 
-\end{verbatim}
+Formulate one clear and researchable question.
 
-The equation appears as \begin{equation} \label{eq-eq2}
-\int_{A_i}{\lambda (\mathbf{x})}
-\end{equation} But in this case, you cannot use \texttt{@eq-eq2} to
-reference the equation. You need to use
-\texttt{\textbackslash{}ref\{eq-eq2\}}. You will need to add
-\texttt{Equation} if you want that prefix, e.g.~Equation \ref{eq-eq2} or
-\textbf{?@eq-eq2}.
+\section{2.2 Sub-questions}\label{sub-questions}
 
-\chapter{Materials and Methods}\label{materials-and-methods}
+Provide several sub-questions that together answer the main one. Cover
+5W1H logic.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
-ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
-quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
-bibendum placerat tellus, ac finibus lectus euismod eget.
+\section{2.3 Hypothesis}\label{hypothesis}
 
-\section{Study area}\label{study-area}
+State a testable proposition based on the expected effect of your
+solution.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
-ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
-quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
-bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
-diam vitae bibendum consequat.
+\section{2.4 Research Methodology}\label{research-methodology}
 
-\begin{figure}
+Describe the approach, data sources, research population, collection,
+and analysis methods. Show feasibility.
 
-\centering{
+\section{2.5 Validation Logic from Previous
+Research}\label{validation-logic-from-previous-research}
 
-\pandocbounded{\includegraphics[keepaspectratio]{img/logo.png}}
+Show how prior studies/frameworks will inform your design. Mention
+benchmarking and feasibility testing.
 
-}
+\section{2.6 Filing System and Data Management
+Approach}\label{filing-system-and-data-management-approach}
 
-\caption{\label{fig-logo}the study area}
+Explain how data, notes, and results will be stored, versioned, and
+shared.
 
-\end{figure}%
+\chapter{3 Project Design}\label{project-design}
 
-See Figure~\ref{fig-logo} for a picture of the study area. Etiam vitae
-eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi
-nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio
-euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo.
-Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel
-egestas nisi. Curabitur vitae imperdiet justo.
+\section{3.1 Project Planning and
+Timeline}\label{project-planning-and-timeline}
 
-Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
-leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
-nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
-Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
-lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
-tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
-amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
-ante accumsan lectus rhoncus, vel pharetra sem convallis.
+Present the timeline across the full graduation project (milestones,
+sprints, phases).
 
-\chapter{Results}\label{results}
+\section{3.2 Stakeholder Analysis and Role
+Division}\label{stakeholder-analysis-and-role-division}
 
-See Table~\ref{tbl-numbers} for the table of results. Phasellus quis
-orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante
-convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna.
-Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies
-pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam
-sit amet tellus ut, pellentesque porttitor orci. Integer quis mi
-pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat
-facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
-fermentum sem.
+Identify stakeholders, what is at stake for each, and their
+roles/responsibilities.
 
-\begin{longtable}[]{@{}lr@{}}
-\caption{Table of numbers.}\label{tbl-numbers}\tabularnewline
-\toprule\noalign{}
-Thing & Value \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Thing & Value \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-A 42 & 18 \\
-B 15 & 18 \\
-C 34 & 17 \\
-D 99 & 24 \\
-\end{longtable}
+\section{3.3 Required Resources}\label{required-resources}
 
-\chapter{Discussion}\label{discussion}
+List resources (tools, access, support) and assess feasibility.
 
-Lorem ipsum dolor sit amet, Table~\ref{tbl-numbers}, consectetur
-adipiscing elit. Knuth (1984) and all things LaTeX. Phasellus neque ex,
-vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
-quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
-bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
-diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien
-a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla
-mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis
-risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac
-convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae
-imperdiet justo.
+\section{3.4 Risks and Mitigation
+Strategies}\label{risks-and-mitigation-strategies}
 
-Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
-leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
-nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
-Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
-lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
-tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
-amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
-ante accumsan lectus rhoncus, vel pharetra sem convallis.
+Identify obvious and less obvious risks, and how you will deal with
+them.
 
-Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut
-ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper
-urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec
-ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex
-purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer
-quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in
-erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
-fermentum sem.
+\section{3.5 Criteria and Specifications for
+Deliverables}\label{criteria-and-specifications-for-deliverables}
 
-Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris,
-a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo
-mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna.
-Curabitur tincidunt porta egestas. In eleifend sed enim ac varius.
-Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis.
-Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor,
-congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien
-vel pretium.
+Define scope, criteria, and specifications for final outputs and
+intermediate results.
 
-Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras
-pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc
-vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero
-tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc
-condimentum ex massa, a vestibulum risus bibendum in. Suspendisse
-suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum
-purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue,
-non gravida risus rhoncus sed.
+\section{3.6 Milestones and
+Checkpoints}\label{milestones-and-checkpoints}
 
-\chapter{Conclusion}\label{conclusion}
+Set out key milestones, expected outputs, validation actions, and
+timing.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
-ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
-quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
-bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
-diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien
-a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla
-mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis
-risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac
-convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae
-imperdiet justo.
+\section{3.7 Success Criteria}\label{success-criteria}
 
-Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
-leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
-nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
-Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
-lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
-tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
-amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
-ante accumsan lectus rhoncus, vel pharetra sem convallis.
+Explain how success will be judged by both client and assessment board.
 
-Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut
-ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper
-urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec
-ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex
-purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer
-quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in
-erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
-fermentum sem.
+\section{3.8 Location for Shared Data, Files, and
+Updates}\label{location-for-shared-data-files-and-updates}
 
-Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris,
-a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo
-mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna.
-Curabitur tincidunt porta egestas. In eleifend sed enim ac varius.
-Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis.
-Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor,
-congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien
-vel pretium.
+State where materials will be stored and how progress will be monitored.
 
-Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras
-pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc
-vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero
-tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc
-condimentum ex massa, a vestibulum risus bibendum in. Suspendisse
-suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum
-purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue,
-non gravida risus rhoncus sed.
+\chapter{4 APA Reference List}\label{apa-reference-list}
 
-\chapter{Author Contributions}\label{author-contributions}
+Provide all references in APA style. Ensure accuracy and consistency.
 
-Author1 designed the research. Author2 carried out all simulations,
-analyzed the data. Author1 and Author2 wrote the article.
+\chapter{5 Appendix}\label{appendix}
 
-\chapter{Acknowledgments}\label{acknowledgments}
-
-We thank G. Harrison, B. Harper, and J. Doe for their help.
-
-\chapter{References}\label{references}
-
-\phantomsection\label{refs}
-\begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-knuth84}
-Knuth, Donald E. 1984. {``Literate Programming.''} \emph{Comput. J.} 27
-(2): 97--111. \url{https://doi.org/10.1093/comjnl/27.2.97}.
-
-\end{CSLReferences}
+Include supporting material such as transcripts, templates, stakeholder
+input, or planning visuals.
 
 
 \backmatter
